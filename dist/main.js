@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("console.log(\"its working!!\")\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("window.addEventListener('DOMContentLoaded', () => {});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 

@@ -1,1 +1,1 @@
-console.log("its working!!")
+window.addEventListener('DOMContentLoaded', () => {});
