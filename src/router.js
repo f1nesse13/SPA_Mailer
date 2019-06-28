@@ -1,23 +1,31 @@
+const Inbox = require('./Inbox.js');
+
 class Router {
-  constructor(node) {
+  constructor(node, routes) {
     this.node = node;
+    this.routes = routes;
   }
 
   start() {
-    document.addEventListener('hashchange', e => {
+    window.addEventListener('hashchange', e => {
       this.render();
     });
   }
 
   activeRoute() {
-    return window.location.hash.substr(1, window.location.hash.length - 1);
+    let route = window.location.hash.substr(1, window.location.hash.length - 1);
+    return this.routes[route];
   }
 
   render() {
-    this.node.innerHtml = '';
-    const $p = document.createElement('p');
-    $p.innerHTML = this.activeRoute();
-    this.node.appendChild($p);
+    let component = this.activeRoute();
+    if (component === undefined) {
+      this.node.innerHTML = '';
+    } else {
+      this.node.innerHTML = '';
+      const componentNode = component.render();
+      this.node.appendChild(componentNode);
+    }
   }
 }
 
