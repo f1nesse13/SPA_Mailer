@@ -91,9 +91,20 @@
   !*** ./src/index.js ***!
   \**********************/
 /*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const Router = __webpack_require__(/*! ./router.js */ \"./src/router.js\");\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  let sideBarLi = Array.from(document.querySelectorAll('.sidebar-nav li'));\n\n  sideBarLi.forEach(li => {\n    li.addEventListener('click', e => {\n      window.location.hash = li.innerText.toLowerCase();\n    });\n  });\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/router.js":
+/*!***********************!*\
+  !*** ./src/router.js ***!
+  \***********************/
+/*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("window.addEventListener('DOMContentLoaded', () => {\n  let sideBarLi = Array.from(document.querySelectorAll('.sidebar-nav li'));\n\n  sideBarLi.forEach(li => {\n    li.addEventListener('click', e => {\n      window.location.hash = li.innerText.toLowerCase();\n    });\n  });\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("class Router {\n  constructor(node) {\n    this.node = node;\n  }\n\n  start() {\n    document.addEventListener('hashchange', e => {\n      this.render();\n    });\n  }\n\n  activeRoute() {\n    return window.location.hash.substr(1, window.location.hash.length - 1);\n  }\n\n  render() {\n    this.node.innerHtml = '';\n    const $p = document.createElement('p');\n    $p.innerHTML = this.activeRoute();\n    this.node.appendChild($p);\n  }\n}\n\nmodule.exports = Router;\n\n\n//# sourceURL=webpack:///./src/router.js?");
 
 /***/ })
 

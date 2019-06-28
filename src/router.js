@@ -10,10 +10,15 @@ class Router {
   }
 
   activeRoute() {
-    // the active route :)
+    return window.location.hash.substr(1, window.location.hash.length - 1);
   }
 
   render() {
-    // render page
+    this.node.innerHtml = '';
+    const $p = document.createElement('p');
+    $p.innerHTML = this.activeRoute();
+    this.node.appendChild($p);
   }
 }
+
+module.exports = Router;

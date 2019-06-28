@@ -1,3 +1,5 @@
+const Router = require('./router.js');
+
 window.addEventListener('DOMContentLoaded', () => {
   let sideBarLi = Array.from(document.querySelectorAll('.sidebar-nav li'));
 
