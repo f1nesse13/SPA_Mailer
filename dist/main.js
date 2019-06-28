@@ -91,9 +91,9 @@
   !*** ./src/Inbox.js ***!
   \**********************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-eval("const Inbox = {\n  render() {\n    const newUl = document.createElement('ul');\n    newUl.className = 'messages';\n    newUl.innerHTML = 'Inbox message';\n    return newUl;\n  }\n};\n\nmodule.exports = Inbox;\n\n\n//# sourceURL=webpack:///./src/Inbox.js?");
+eval("const MessageStore = __webpack_require__(/*! ./message_store.js */ \"./src/message_store.js\");\n\nconst Inbox = {\n  render() {\n    const newUl = document.createElement('ul');\n    newUl.className = 'messages';\n    const messages = MessageStore.getInboxMessages();\n    messages.forEach(message => {\n      const newMessage = this.renderMessage(message);\n      newUl.appendChild(newMessage);\n    });\n    return newUl;\n  },\n\n  renderMessage(message) {\n    const messageItem = document.createElement('li');\n    messageItem.addClass = 'message';\n    messageItem.innerHTML = `<span class='from'>${message.from}</span> <span class='subject'>${message.subject}</span> <span class='body'>${message.body}</span>`;\n    return messageItem;\n  }\n};\n\nmodule.exports = Inbox;\n\n\n//# sourceURL=webpack:///./src/Inbox.js?");
 
 /***/ }),
 
@@ -105,6 +105,17 @@ eval("const Inbox = {\n  render() {\n    const newUl = document.createElement('u
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("const Router = __webpack_require__(/*! ./router.js */ \"./src/router.js\");\nconst Inbox = __webpack_require__(/*! ./Inbox.js */ \"./src/Inbox.js\");\n\nconst routes = {\n  inbox: Inbox\n};\nwindow.addEventListener('DOMContentLoaded', () => {\n  const content = document.querySelector('.content');\n  const router = new Router(content, routes);\n  router.start();\n  const sideBarItems = Array.from(document.querySelectorAll('.sidebar-nav li'));\n  sideBarItems.forEach(li => {\n    li.addEventListener('click', () => {\n      window.location.hash = li.innerText.toLowerCase();\n    });\n  });\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/message_store.js":
+/*!******************************!*\
+  !*** ./src/message_store.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("let messages = {\n  sent: [\n    {\n      to: 'Joe@gmail.com',\n      from: 'Layla@gmail.com',\n      subject: 'I love you',\n      body: 'I love you so much!'\n    },\n    {\n      to: 'phi@gmail.com',\n      from: 'lihan@gmail.com',\n      subject: 'Important Stuff',\n      body: 'This is important - imagine its important please!'\n    }\n  ],\n  inbox: [\n    { from: 'Layla@gmail.com', subject: 'I love you too!', body: 'I love you so much!' },\n    { from: 'death007@gmail', subject: '0wn3d k1D', body: 'jooR goT own3d kiiiiiiiiDD' }\n  ]\n};\n\nlet MessageStore = {\n  getInboxMessages() {\n    return messages.inbox;\n  },\n  getSentMessages() {\n    return messages.sent;\n  }\n};\n\nmodule.exports = MessageStore;\n\n\n//# sourceURL=webpack:///./src/message_store.js?");
 
 /***/ }),
 
