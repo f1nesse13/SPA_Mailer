@@ -10,7 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
   router.start();
   const sideBarItems = Array.from(document.querySelectorAll('.sidebar-nav li'));
   sideBarItems.forEach(li => {
-    li.addEventListener('click', e => {
+    li.addEventListener('click', () => {
       window.location.hash = li.innerText.toLowerCase();
     });
   });
