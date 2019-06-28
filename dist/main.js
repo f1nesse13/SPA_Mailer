@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("window.addEventListener('DOMContentLoaded', () => {});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("window.addEventListener('DOMContentLoaded', () => {\n  let sideBarLi = Array.from(document.querySelectorAll('.sidebar-nav li'));\n\n  sideBarLi.forEach(li => {\n    li.addEventListener('click', e => {\n      window.location.hash = li.innerText.toLowerCase();\n    });\n  });\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ })
 
