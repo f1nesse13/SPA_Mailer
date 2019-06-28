@@ -1,10 +1,10 @@
-const Message {
-  constructor(from="", to="", subject="", body="") {
+class Message {
+  constructor(from = '', to = '', subject = '', body = '') {
     this.from = from;
     this.to = to;
     this.subject = subject;
     this.body = body;
-  } 
+  }
 }
 
 const MessageStore = {
@@ -15,15 +15,15 @@ const MessageStore = {
     return messages.sent;
   },
   updateDraftField(field, val) {
-    messages[field] = val
+    messages[field] = val;
   },
   sendDraft() {
     messages.sent.push(messageDraft);
-    messageDraft = new Message()
+    messageDraft = new Message();
   }
 };
 
-let messageDraft = new Message()
+let messageDraft = new Message();
 
 let messages = {
   sent: [
