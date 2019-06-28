@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const Router = __webpack_require__(/*! ./router.js */ \"./src/router.js\");\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  let sideBarLi = Array.from(document.querySelectorAll('.sidebar-nav li'));\n\n  sideBarLi.forEach(li => {\n    li.addEventListener('click', e => {\n      window.location.hash = li.innerText.toLowerCase();\n    });\n  });\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const Router = __webpack_require__(/*! ./router.js */ \"./src/router.js\");\n\nwindow.addEventListener('DOMContentLoaded', () => {\n  const content = document.querySelector('.content');\n  router = new Router(content);\n  router.start();\n  const sideBarItems = Array.from(document.querySelectorAll('.sidebar-nav li'));\n  sideBarItems.forEach(li => {\n    li.addEventListener('click', e => {\n      window.location.hash = li.innerText.toLowerCase();\n    });\n  });\n});\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
