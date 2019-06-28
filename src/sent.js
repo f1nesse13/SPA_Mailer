@@ -1,10 +1,10 @@
 const MessageStore = require('./message_store.js');
 
-const Inbox = {
+const Sent = {
   render() {
     const newUl = document.createElement('ul');
     newUl.className = 'messages';
-    const messages = MessageStore.getInboxMessages();
+    const messages = MessageStore.getSentMessages();
     messages.forEach(message => {
       const newMessage = this.renderMessage(message);
       newUl.appendChild(newMessage);
@@ -15,9 +15,9 @@ const Inbox = {
   renderMessage(message) {
     const messageItem = document.createElement('li');
     messageItem.addClass = 'message';
-    messageItem.innerHTML = `<span class='from'>From: ${message.from}</span> <span class='subject'>Subject: ${message.subject}</span> <span class='body'>${message.body}</span>`;
+    messageItem.innerHTML = `<span class='to'>To: ${message.to}</span> <span class='subject'>Subject: ${message.subject}</span> <span class='body'>${message.body}</span>`;
     return messageItem;
   }
 };
 
-module.exports = Inbox;
+module.exports = Sent;
