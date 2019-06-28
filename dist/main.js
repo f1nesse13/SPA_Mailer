@@ -115,7 +115,7 @@ eval("const Router = __webpack_require__(/*! ./router.js */ \"./src/router.js\")
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("let messages = {\n  sent: [\n    {\n      to: 'Joe@gmail.com',\n      from: 'Layla@gmail.com',\n      subject: 'I love you',\n      body: 'I love you so much!'\n    },\n    {\n      to: 'phi@gmail.com',\n      from: 'lihan@gmail.com',\n      subject: 'Important Stuff',\n      body: 'This is important - imagine its important please!'\n    }\n  ],\n  inbox: [\n    { from: 'Layla@gmail.com', subject: 'I love you too!', body: 'I love you so much!' },\n    { from: 'death007@gmail', subject: '0wn3d k1D', body: 'jooR goT own3d kiiiiiiiiDD' }\n  ]\n};\n\nlet MessageStore = {\n  getInboxMessages() {\n    return messages.inbox;\n  },\n  getSentMessages() {\n    return messages.sent;\n  }\n};\n\nmodule.exports = MessageStore;\n\n\n//# sourceURL=webpack:///./src/message_store.js?");
+eval("throw new Error(\"Module parse failed: Unexpected token (1:14)\\nYou may need an appropriate loader to handle this file type, currently no loaders are configured to process this file. See https://webpack.js.org/concepts#loaders\\n> const Message {\\n|   constructor(from=\\\"\\\", to=\\\"\\\", subject=\\\"\\\", body=\\\"\\\") {\\n|     this.from = from;\");\n\n//# sourceURL=webpack:///./src/message_store.js?");
 
 /***/ }),
 
